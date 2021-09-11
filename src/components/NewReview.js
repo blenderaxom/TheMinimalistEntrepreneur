@@ -45,6 +45,16 @@ function NewReview({ open, setOpen }) {
         await updateDoc(doc(db, "main", "total"), { four: increment(1) });
       } else if (star === 5) {
         await updateDoc(doc(db, "main", "total"), { five: increment(1) });
+      } else if (star === 0.5) {
+        await updateDoc(doc(db, "main", "total"), { half: increment(1) });
+      } else if (star === 1.5) {
+        await updateDoc(doc(db, "main", "total"), { onehalf: increment(1) });
+      } else if (star === 2.5) {
+        await updateDoc(doc(db, "main", "total"), { twohalf: increment(1) });
+      } else if (star === 3.5) {
+        await updateDoc(doc(db, "main", "total"), { threehalf: increment(1) });
+      } else if (star === 4.5) {
+        await updateDoc(doc(db, "main", "total"), { fourhalf: increment(1) });
       }
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -58,9 +68,7 @@ function NewReview({ open, setOpen }) {
   return (
     <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
       <DialogTitle>
-        <Typography className={classes.title}>
-          What's your rating?
-        </Typography>
+        <Typography className={classes.title}>What's your rating?</Typography>
       </DialogTitle>
       <DialogContent>
         <Box display="flex" flexDirection="column" style={{ gap: 30 }}>
@@ -74,6 +82,7 @@ function NewReview({ open, setOpen }) {
               setStar(newValue);
             }}
             size="large"
+            precision={0.5}
             disabled={submitting}
           />
           <Typography variant="h6" className={classes.subTitle}>

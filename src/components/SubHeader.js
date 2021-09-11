@@ -1,4 +1,4 @@
-import { doc, getDoc, onSnapshot } from "@firebase/firestore";
+import { doc, onSnapshot } from "@firebase/firestore";
 import { Box, Button, Typography } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import React from "react";
@@ -24,12 +24,22 @@ function SubHeader() {
       4 * ratingsCount.four +
       3 * ratingsCount.three +
       2 * ratingsCount.two +
-      1 * ratingsCount.one) /
+      1 * ratingsCount.one +
+      0.5 * ratingsCount.half +
+      1.5 * ratingsCount.onehalf +
+      2.5 * ratingsCount.twohalf +
+      3.5 * ratingsCount.threehalf +
+      4.5 * ratingsCount.fourhalf) /
     (ratingsCount.five +
       ratingsCount.four +
       ratingsCount.three +
       ratingsCount.two +
-      ratingsCount.one);
+      ratingsCount.one +
+      ratingsCount.half +
+      ratingsCount.onehalf +
+      ratingsCount.twohalf +
+      ratingsCount.threehalf +
+      ratingsCount.fourhalf);
   return (
     <div>
       {total && (
