@@ -95,6 +95,7 @@ function NewReview({ open, setOpen }) {
               setReview(e.target.value);
             }}
             disabled={submitting}
+            multiline
           />
           <div>
             <Button
