@@ -12,8 +12,8 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
+  InputBase,
   makeStyles,
-  TextField,
   Typography,
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
@@ -88,11 +88,9 @@ function NewReview({ open, setOpen }) {
           <Typography variant="h6" className={classes.subTitle}>
             Review
           </Typography>
-          <TextField
-            multiline
-            variant="outlined"
+          <InputBase
             placeholder="Start typing..."
-            star={review}
+            value={review}
             onChange={(e) => {
               setReview(e.target.value);
             }}
